@@ -30,18 +30,17 @@ def main():
         key_lst = pg.key.get_pressed()
         dx, dy = 0, 0
         if key_lst[pg.K_UP]:
-            dx += -1
             dy += -1
         elif key_lst[pg.K_DOWN]:
-            dx += -1
             dy += 1
         elif key_lst[pg.K_LEFT]:
             dx += -1
-
         elif key_lst[pg.K_RIGHT]:
             dx += 2
-
-        kk_rct.move_ip(dx, dy)
+        kk_rct.move_ip(dx-1, dy)
+        
+        if kk_rct.left < 0:
+            kk_rct.left = 0
 
         pg.display.update()
         tmr += 1        

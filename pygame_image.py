@@ -21,21 +21,21 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         x = tmr%3200
-        screen.blit(bg_img, [-x, 0])
-        screen.blit(bg_img_flip, [1600-x, 0])
-        screen.blit(bg_img, [3200-x, 0])
+        screen.blit(bg_img, [x, 0])
+        screen.blit(bg_img_flip, [-1600+x, 0])
+        screen.blit(bg_img, [-3200+x, 0])
         # screen.blit(kk_img, [300, 200])
         screen.blit(kk_img, kk_rct)
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
+            kk_rct.move_ip((-1,-1))
         elif key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, 1))
+            kk_rct.move_ip((-1, 1))
         elif key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1, 0))
         elif key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
+            kk_rct.move_ip((2, 0))
 
         pg.display.update()
         tmr += 1        
